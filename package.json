@@ -1,0 +1,26 @@
+{
+  "name": "@ds.e/core",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sumgwork/dse-design-system.git",
+  "author": "Sumit Govil <sumg.work@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/normalize-scss"
+    ]
+  },
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "stream": true,
+  "scripts": {
+    "build": "yarn lerna run build"
+  }
+}
