@@ -1,4 +1,5 @@
 import { FC } from "react";
+import "@ds.e/scss/lib/Button.css";
 interface ButtonProps {
     label: string;
 }

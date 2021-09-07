@@ -100,9 +100,9 @@
  *
  */
 .dse-button-container {
-  display: flex;
   background: var(--dse-btn-primary-bg, #5ece7b);
   color: var(--dse-btn-primary-color, #fff);
   border: none;
-  padding: 0.25rem;
+  padding: 1.5rem;
+  font-weight: 700;
 }
