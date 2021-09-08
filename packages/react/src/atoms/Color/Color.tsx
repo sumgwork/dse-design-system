@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Spacing } from "../..";
+import { Spacing } from "@ds.e/foundation";
 import "@ds.e/scss/lib/Utilities.css";
 
 interface ColorProps {
