@@ -1,12 +1,18 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { Button, Color, Text } from "@ds.e/react";
+import { Button, Color, Text, Margin } from "@ds.e/react";
 
 ReactDom.render(
   <div>
-    <Button label="Hi" />
-    <Color hexCode="#000" height="xxxl" width="xxl" />
-    <Text size="xl">New Text</Text>
+    <Margin>
+      <Button label="Hi" />
+    </Margin>
+    <Margin>
+      <Color hexCode="#000" height="xxxl" width="xxl" />
+    </Margin>
+    <Margin space="lg" top>
+      <Text size="xl">New Text</Text>
+    </Margin>
   </div>,
   document.querySelector("#root")
 );
