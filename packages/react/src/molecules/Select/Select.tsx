@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, ReactNode, useEffect, useRef, useState } from "react";
 import "@ds.e/scss/lib/Select.css";
 import Text from "../../atoms/Text";
 
@@ -7,16 +7,24 @@ interface SelectOption {
   value: string;
 }
 
+interface RenderOptionProps {
+  isSelected: boolean;
+  option: SelectOption;
+  getOptionRecommendedProps: (overrideProps?: Object) => Object;
+}
+
 interface SelectProps {
   onOptionSelected?: (option: SelectOption, optionIndex: number) => void;
   options?: SelectOption[];
   label?: string;
+  renderOption?: (props: RenderOptionProps) => ReactNode;
 }
 
 const Select: FC<SelectProps> = ({
   options = [],
   label = "Please select an option",
   onOptionSelected: handler,
+  renderOption,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [overlayTop, setOverlayTop] = useState<number>(0);
@@ -75,6 +83,20 @@ const Select: FC<SelectProps> = ({
             const className = `dse-select__option ${
               isSelected ? "dse-select__option-selected" : ""
             }`;
+
+            if (renderOption) {
+              return renderOption({
+                isSelected,
+                option,
+                getOptionRecommendedProps: (overrideProps = {}) => ({
+                  className,
+                  key: option.value,
+                  onClick: () => onOptionSelected(option, index),
+                  ...overrideProps,
+                }),
+              });
+            }
+
             return (
               <li
                 className={className}

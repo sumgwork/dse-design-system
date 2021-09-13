@@ -29,16 +29,7 @@ ReactDom.render(
       <Text size="xl">New Text</Text>
     </Margin>
     <Margin space="lg" top>
-      <Select
-        onOptionSelected={(option, optionIndex) => {
-          console.log(
-            "🚀 ~ file: index.tsx ~ line 18 ~ optionIndex",
-            optionIndex
-          );
-          console.log("🚀 ~ file: index.tsx ~ line 18 ~ option", option);
-        }}
-        options={selectOptions}
-      />
+      <Select options={selectOptions} />
     </Margin>
   </div>,
   document.querySelector("#root")
