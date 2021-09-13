@@ -20,7 +20,6 @@
   },
   "scripts": {
     "build": "yarn lerna run build",
-    "develop": "yarn lerna run dev",
-    "dev": "yarn build && yarn develop"
+    "dev": "yarn lerna run dev"
   }
 }
