@@ -2,11 +2,15 @@
   "name": "@ds.e/core",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/sumgwork/dse-design-system.git",
-  "author": "Sumit Govil <sumg.work@gmail.com>",
+  "author": "Sumit Govil<sumg.work@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "husky": "^4.2.5",
+    "lerna": "^3.22.1"
   },
   "private": true,
   "workspaces": {
@@ -20,6 +24,21 @@
   },
   "scripts": {
     "build": "yarn lerna run build",
-    "dev": "yarn lerna run dev"
+    "dev": "yarn lerna run dev",
+    "test": "yarn lerna run test",
+    "publish": "yarn test && yarn build && yarn lerna publish",
+    "commit": "yarn git-cz",
+    "test:chromatic": "yarn lerna run test:chromatic",
+    "build:storybook": "yarn build && yarn lerna run build-storybook"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }

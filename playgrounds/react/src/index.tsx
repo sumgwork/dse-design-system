@@ -1,36 +1,30 @@
-import React from "react";
-import ReactDom from "react-dom";
-import { Button, Color, Text, Margin, Select } from "@ds.e/react";
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-const selectOptions = [
-  {
-    value: "havenly-green",
-    label: "Havenly Green",
-  },
-  {
-    value: "strict-black",
-    label: "Strict Black",
-  },
-  {
-    value: "pink",
-    label: "Pink",
-  },
-];
+import { Select } from '@ds.e/react'
 
-ReactDom.render(
-  <div>
-    <Margin>
-      <Button label="Hi" />
-    </Margin>
-    <Margin>
-      <Color hexCode="#000" height="xxxl" width="xxl" />
-    </Margin>
-    <Margin space="lg" top>
-      <Text size="xl">New Text</Text>
-    </Margin>
-    <Margin space="lg" top>
-      <Select options={selectOptions} />
-    </Margin>
-  </div>,
-  document.querySelector("#root")
-);
+import '@ds.e/scss/lib/Utilities.css'
+import '@ds.e/scss/lib/Text.css'
+import '@ds.e/scss/lib/Margin.css'
+import '@ds.e/scss/lib/Select.css'
+import '@ds.e/scss/lib/global.css'
+
+const options = [{
+    label: 'Strict Black',
+    value: 'strict-black'
+}, {
+    label: 'Heavenly Green',
+    value: 'heavenly-green'
+}, {
+    label: 'Sweet Pink',
+    value: 'pink'
+}]
+
+ReactDOM.render(
+    <div style={{ padding: '40px' }}>
+        <Select options={options} />
+    </div>,
+    document.querySelector('#root')
+)
+
+// <Select label='Please select a size' onOptionSelected={console.log} options={[{ label: '', value: '' }]} />

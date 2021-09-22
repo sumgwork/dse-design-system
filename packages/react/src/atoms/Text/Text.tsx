@@ -1,14 +1,14 @@
-import React, { FC } from "react";
-import { FontSize } from "@ds.e/foundation";
+import React from 'react'
+import { FontSize } from '@ds.e/foundation'
 
-interface TextProps {
-  size?: keyof typeof FontSize;
+export interface TextProps {
+    size?: keyof typeof FontSize
 }
 
-const Text: FC<TextProps> = ({ size = "base", children }) => {
-  const className = `dse-font-${size}`;
+const Text: React.FC<TextProps> = ({ size = FontSize.base, children }) => {
+    const className = `dse-text dse-text-${size}`
 
-  return <span className={className}>{children}</span>;
-};
+    return <p className={className}>{children}</p>
+}
 
-export default Text;
+export default Text
